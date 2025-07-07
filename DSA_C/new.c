@@ -377,3 +377,80 @@
 
 
 
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct queue{
+    int size;
+    int f;
+    int r;
+    int *arr;
+};
+int isfull(struct queue* s){
+    if((s->r+1)==s->f){
+        return 1;
+    }
+    return 0;
+}
+void enqueue(struct queue* s,int val){
+    if(isfull(s)){
+        printf("\nQueue is full\n");
+    }
+    else{
+        s->r++;
+        s->arr[s->r]=val;
+    }
+}
+int isempty(struct queue* s){
+    if(s->r==-1){
+        return 1;
+    }
+    return 0;
+}
+void dequeue(struct queue *s){
+    if(isempty(s)){
+        printf("\nQueue is empty\n");
+    }
+    else{
+        s->f++;
+    }
+}
+void traversal(struct queue* s){
+    if(isempty(s)){
+        printf("\nQueue is empty\n");
+    }
+
+    printf("Queue elements\n");
+    for(int i = s->f;i<s->r;i++){
+        printf("%d\n",s->arr[i]);
+    }
+}
+int main(){
+    struct queue*s;
+    s=(struct queue*)malloc(sizeof(struct queue));
+    s->f=s->r=-1;
+    s->size=100;
+    s->arr=((int*)malloc(sizeof(int)));
+
+    enqueue(s,1);
+    enqueue(s,2);
+    enqueue(s,3);
+    enqueue(s,4);
+    enqueue(s,5);
+
+    enqueue(s,6);           // this is dequeued so its not
+
+    dequeue(s);
+
+    traversal(s);
+
+    return 0;
+}
+
+
+
+
+
+//##circulare queue
