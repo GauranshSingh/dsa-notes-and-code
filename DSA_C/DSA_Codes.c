@@ -543,22 +543,17 @@
 //     fourth = (struct Node*)malloc(sizeof(struct Node));
 //     fifth=(struct Node*)malloc(sizeof(struct Node));
 
-
 //     head->data =8;
 //     head->next = second;
-
     
 //     second->data =9;
 //     second->next = third;
-
     
 //     third->data = 11;
 //     third->next = fourth;
-
     
 //     fourth->data =7;
 //     fourth->next = fifth;
-
 
 //     fifth->data =2;
 //     fifth->next = NULL;
@@ -645,11 +640,10 @@
 
 
 
+
+
+
 //Delete the elements of the node
-
-
-
-
 // // To delete the first element
 // #include "stdio.h"
 // #include "stdlib.h"
@@ -756,26 +750,20 @@
 //     fourth = (struct Node*)malloc(sizeof(struct Node));
 //     fifth=(struct Node*)malloc(sizeof(struct Node));
 
-
 //     head->data =8;
 //     head->next = second;
-
     
 //     second->data =9;
 //     second->next = third;
-
     
 //     third->data = 11;
 //     third->next = fourth;
-
     
 //     fourth->data =7;
 //     fourth->next = fifth;
 
-
 //     fifth->data =2;
 //     fifth->next = NULL;
-
 
 //     printf("Linked List before deletion\n");
 //     linkedlistraversal(head);
@@ -1040,6 +1028,9 @@
 
 //     fifth->data =2;
 //     fifth->next = head;
+
+
+
 //     printf("Circular linked list before insertion\n");
 //     linkedlistraversal(head);//to print the linked list
 //     head=insertion_in_head(head,69);
@@ -1048,6 +1039,7 @@
 //     linkedlistraversal(head);//to print the linked list
 //     return 0;
 // }
+
 
 
 
@@ -1120,7 +1112,6 @@
 
 
 //###DOUBLY Linked list
-
 
 
 
@@ -1222,8 +1213,6 @@
 //     s->size=80;
 //     s->top=-1;
 //     s->arr=(int*)malloc(s->size*sizeof(int));
-
-
 //     //Pushing an element manually
 //     s->arr[0]=7;
 //     s->top++;
@@ -2291,8 +2280,8 @@
 //         printf("Queue underflow\n");
 //     }
 //     else{
-//     q->f++;
 //     a=q->arr[q->f];
+//     q->f++;
 //     }
 //     printf("Dequed element %d\n",a);
 // }
@@ -2316,13 +2305,9 @@
 
 // ###CIRCULAR QUEUE
 
-// A circular queue is a type of queue where the last element is connected to the first element,
-// forming a circle. This allows the queue to be implemented using a single array, and the
-// enqueue and dequeue operations can be performed efficiently.
-
-
-
-
+// // A circular queue is a type of queue where the last element is connected to the first element,
+// // forming a circle. This allows the queue to be implemented using a single array, and the
+// // enqueue and dequeue operations can be performed efficiently.
 
 // //This is the code of all the basic functions in cicularqueue
 // #include <stdio.h>
@@ -2339,7 +2324,7 @@
 //     }
 // }
 // int isfull(struct circularqueue *q){
-//     if((q->r+1)%q->size==q->f){                     // r+1 is done since we are looking for the next positon in the queue
+//     if((q->r+1)%q->size==q->f){                     // r+1 is done since if the rear has takes a full round then it will exceed the size of the queue... so inorder to make the queue get started from front again we take its remainder from the the size this leaves us with only the r after the queue has taken a round 
 //         return 1;
 //     }
 //     return 0;
@@ -2596,34 +2581,34 @@
 
 
 
-// //insertion sort(mine)
-// #include <stdio.h>
-// void print_arr(int arr[],int n){
-//     printf("\nArray: ");
-//         for(int a=0;a<n;a++){
-//         printf("%d\t",arr[a]);
-//     }
-// }
-// int insertion_sort(int arr[],int n){
-//     int key,j;
-//     for( int i=0;i<n-1;i++){
-//         key=arr[i];
-//         j=i-1;
-//         while(j>=0&&arr[j]>key){
-//             arr[j+1]=arr[j];
-//             j--;
-//         }
-//         arr[j+1]=key;
-//     }
-// }
-// int main(){
-//     int arr[]={7,1,4,36,4,69};
-//     int n=6;
-//     print_arr(arr,n);
-//     insertion_sort(arr,n);
-//     print_arr(arr,n);
-//     return 0;
-// }
+//insertion sort(mine)
+#include <stdio.h>
+void print_arr(int arr[],int n){
+    printf("\nArray: ");
+        for(int a=0;a<n;a++){
+        printf("%d\t",arr[a]);
+    }
+}
+int insertion_sort(int arr[],int n){
+    int key,j;
+    for( int i=0;i<n;i++){
+        key=arr[i];
+        j=i-1;
+        while(j>=0&&arr[j]>key){
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=key;
+    }
+}
+int main(){
+    int arr[]={7,1,4,36,4,69};
+    int n=6;
+    print_arr(arr,n);
+    insertion_sort(arr,n);
+    print_arr(arr,n);
+    return 0;
+}
 
 
 
@@ -2650,10 +2635,10 @@
 //         j = i-1;
 //         // Loop for each pass
 //         while(j>=0 && A[j] > key){
-//             A[j+1] = A[j];
+//             A[j+1] = A[j];                  //shifting each element to one posiiton ahead since the space of the key will be empty in the unsorted part of the array
 //             j--;
 //         }
-//         A[j+1] = key;
+//         A[j+1] = key;                 // the reason i did j+1 is because by the end to the loop      
 //     }
 // }
 
@@ -2696,7 +2681,7 @@
 
 
 
-////selection sort algo(mine)
+// //selection sort algo(mine)
 // #include <stdio.h>
 // void scan(int arr[],int n){
 //     printf("Enter the elements of the array\n");
@@ -2713,7 +2698,7 @@
 // void selection_sort(int arr[],int n){
 //     int indexmin,temp;
 //     for(int i=0;i<n+1;i++){
-//         indexmin=i;
+//         indexmin=i;  
 //         for(int j=i+1;j<n;j++){
 //             if(arr[j]<arr[indexmin]){
 //                 indexmin=j;
@@ -2832,7 +2817,6 @@
 //     while(i<=high&&arr[i]<=pivot){
 //         i++;
 //     }
-
 //     while(j>=low&&arr[j]>pivot){
 //         j--;
 //     }
@@ -2850,7 +2834,6 @@
 // }
 // void Quick_sort(int arr[],int low,int high){
 //     int partitionindex;//index of pivot after partition 
-
 //     if(low<high){
 //     partitionindex= partition(arr,low,high);
 //     Quick_sort(arr,low,partitionindex-1);//sort left subarray
@@ -2911,9 +2894,10 @@
 //     } while (i < j);
 
 //     // Swap A[low] and A[j]
-//     temp = A[low];
+//     temp = A[low];                  // reason we swapped with j(element with lower value than pivot) is bcoz the value of j is lesser than pivot 
+//     A[j] = temp;                    //so it is suppose to be on teh left to the pivot
 //     A[low] = A[j];
-//     A[j] = temp;
+
 //     return j;
 // }
 
@@ -2954,7 +2938,7 @@
 
 
 
-//Mergesort algorithm (mine)
+// //Mergesort algorithm (mine)
 
 // #include <stdio.h>
 // void scan(int arr[],int n){
@@ -3233,12 +3217,7 @@
 
 
 
-
-
 // ###\tree data structure
-
-
-
 
 
 
@@ -3531,7 +3510,7 @@
 
 
 
-//###searching in a binary search tree###
+//### searching in a binary search tree ###
 
 
 
@@ -3759,7 +3738,7 @@
 //     }
 // }
 // struct node *inOrderPredecessor(struct node* root){
-//     root = root->left;
+//     root = root->left;       // we take the previous root only
 //     while (root->right!=NULL)
 //     {
 //         root = root->right;
@@ -3871,7 +3850,8 @@
 //         if(!isBST(root->left)){
 //             return 0;
 //         }
-//         if(prev!=NULL && root->data <= prev->data){
+//         if(prev!=NULL && root->data <= prev->data){     // since the root gets update before prev in this and the text is workign like its an inorder 
+//                                     //traversal that is meant to be always in an asscending order thus this kind of condition in the if statement
 //             return 0;
 //         }
 //         prev = root;
@@ -3931,7 +3911,6 @@
 // }
 
 // struct node *deleteNode(struct node *root, int value){
-
 //     struct node* iPre;
 //     if (root == NULL){
 //         return NULL;
@@ -3980,10 +3959,15 @@
 //     inOrder(p);
 //     printf("\n");
 //     deleteNode(p, 3);
-//     inOrder(p);'
+//     inOrder(p);
 
 //     return 0;
 // }
+
+
+
+
+
 
 
 
@@ -4034,3 +4018,207 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ####Graphs####
+
+
+
+
+
+
+// // ## BFS Implementation  ##
+
+
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// // Queue structure
+// struct queue {
+//     int size;
+//     int f;
+//     int r;
+//     int *arr;
+// };
+
+// // Check if queue is full
+// int isfull(struct queue *q) {
+//     return q->r == q->size - 1;
+// }
+
+// // Check if queue is empty
+// int isempty(struct queue *q) {
+//     return q->f == q->r;
+// }
+
+// // Enqueue an element
+// void enqueue(struct queue *q, int val) {
+//     if (isfull(q)) {
+//         printf("Queue Overflow\n");
+//     } else {
+//         q->r++;
+//         q->arr[q->r] = val;
+//     }
+// }
+
+// // Dequeue an element and return it
+// int dequeue(struct queue *q) {
+//     int a = -1;
+//     if (isempty(q)) {
+//         printf("Queue Underflow\n");
+//     } else {
+//         q->f++;
+//         a = q->arr[q->f];
+//     }
+//     return a;
+// }
+
+// int main() {
+//     struct queue q;                                        // this is the queue 
+//     q.size = 100;
+//     q.f = q.r = -1;
+//     q.arr = (int *)malloc(q.size * sizeof(int));
+
+//     // BFS implementation
+//     int node;
+//     int i = 0;
+//     int visited[7] = {0, 0, 0, 0, 0, 0, 0};                 // this is the non-visited node in the beganing
+
+//     // Adjacency matrix for the graph
+//     int a[7][7] = {
+//         {0, 1, 1, 1, 0, 0, 0},
+//         {1, 0, 1, 0, 0, 0, 0},
+//         {1, 1, 0, 1, 1, 0, 0},
+//         {1, 0, 1, 0, 1, 0, 0},
+//         {0, 0, 1, 1, 0, 1, 1},
+//         {0, 0, 0, 0, 1, 0, 0},
+//         {0, 0, 0, 0, 1, 0, 0},
+//     };
+
+//     // this is basically we are declaring the first node that we are traversing
+//     printf("%d ", i);
+//     visited[i] = 1;
+//     enqueue(&q, i);
+
+//     while (!isempty(&q)) {
+//         node = dequeue(&q);  // FIXED: get node from queue before using it ( this is 0 as of right now)
+//         for (int j = 0; j < 7; j++) {
+//             if (a[node][j] == 1 && visited[j] == 0) {       // this will ensure only the neighbouring nodes and only the non visited nodes will be visited
+//                 printf("%d ", j);               // this prints the node which is non visited and neighbouring to the node near by
+//                 visited[j] = 1;                 // as soon as we visit these unexplored and non visited nodes we mark them into now visited nodes (as 1) 
+//                 enqueue(&q, j);                 // and we also add them to the exploration queue
+//             }
+//         }
+//     }
+//     free(q.arr);
+//     return 0;
+// }
+
+
+
+
+
+
+
+
+// // ## DFS Implementation  ##
+
+
+
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// // Queue structure
+// struct queue {
+//     int size;
+//     int f;
+//     int r;
+//     int *arr;
+// };
+
+// // Check if queue is full
+// int isfull(struct queue *q) {
+//     return q->r == q->size - 1;
+// }
+
+// // Check if queue is empty
+// int isempty(struct queue *q) {
+//     return q->f == q->r;
+// }
+
+// // Enqueue an element
+// void enqueue(struct queue *q, int val) {
+//     if (isfull(q)) {
+//         printf("Queue Overflow\n");
+//     } else {
+//         q->r++;
+//         q->arr[q->r] = val;
+//     }
+// }
+
+// // Dequeue an element and return it
+// int dequeue(struct queue *q) {
+//     int a = -1;
+//     if (isempty(q)) {
+//         printf("Queue Underflow\n");
+//     } else {
+//         q->f++;
+//         a = q->arr[q->f];
+//     }
+//     return a;
+// }
+
+
+//     // i have made this global variable so that i can access it in the DFS function 
+//     int visited[7] = {0, 0, 0, 0, 0, 0, 0};                 // this is the visited node
+
+//     // Adjacency matrix for the graph
+//     int a[7][7] = {
+//         {0, 1, 1, 1, 0, 0, 0},
+//         {1, 0, 1, 0, 0, 0, 0},
+//         {1, 1, 0, 1, 1, 0, 0},
+//         {1, 0, 1, 0, 1, 0, 0},
+//         {0, 0, 1, 1, 0, 1, 1},
+//         {0, 0, 0, 0, 1, 0, 0},
+//         {0, 0, 0, 0, 1, 0, 0},
+//     };
+
+// void DFS(int i){
+//     int j;
+//     printf("%d ",i);
+//     visited[i]=1;           // till now is the work of the first node of the graph
+//     for(int j=0;j<7;j++){
+//         if(a[i][j]==1 && !visited[j]){     // so basically this function will be only called to teh once that are neighbours and also 
+//             DFS(j);
+//         }
+//     }
+// }
+
+// int main() {
+
+//     // DFS implementation
+
+//     DFS(0);
+
+//     return 0;
+// }

@@ -1274,6 +1274,8 @@
 
 // }
 
+
+
 // #include "stdio.h"
 // int main(){
 // struct personal{
@@ -1289,6 +1291,8 @@
 //     puts(s1.name);
 //     printf("The Date of joining and the salary of the Employ is: %d & %0.2f\n" ,s1.dateofjoining,s1.salary);
 // }
+
+
 
 // Q-3 lab psuc
 // #include "stdio.h"
@@ -1334,6 +1338,8 @@
 //         }
 //     }
 // }
+
+
 
 // #include <stdio.h>
 
@@ -2460,4 +2466,3 @@
 //     return 0;
 // }        
 
-#include <stdio.h> int main(){ printf("Gauransh Singh \n") return 0;}
