@@ -671,7 +671,7 @@
 
 
 
-// // L_3 Q_1 linkedlist insertion deltion and all 
+// //Circular linkedlist insertion deltion and all 
 // #include <stdio.h>
 // #include <malloc.h>
 // struct LinkedNode{
@@ -742,9 +742,9 @@
 //     if (temp == NULL || temp->next == NULL) {
 //         printf("Position out of bounds.\n");
 //     } else {
-//         struct LinkedNode* delNode = temp->next; // This is the node to delete
-//         temp->next = delNode->next;              // Unlink it
-//         free(delNode);                           // Free its memory
+//         struct LinkedNode* delNode = temp->next; 
+//         temp->next = delNode->next;              
+//         free(delNode);                           
 //     }
     
 //     return node;
@@ -842,9 +842,314 @@
 //             return 0;;
 //         }
 //     }
+//     // print_it(head);
+//     // head = insertion(23,3,head);
+//     // print_it(head);
+//     // head= deletion(3,head);
+//     // print_it(head);
+//     // find_element(269,head);
+//     // reverse(head);
+
+//     return 0;
+// }
 
 
 
+
+
+
+
+// // lab_4_1 circular linkedlist insetion deletion creation and display
+// #include <stdio.h>
+// #include <malloc.h>
+// struct Node{
+//     int data;
+//     struct Node*next;
+// };
+// struct Node* deletion(int pos, struct Node* node) {
+//     if (node == NULL || pos < 1) {
+//         printf("List is empty or position is invalid.\n");
+//         return NULL;
+//     }
+
+//     struct Node* temp = node; 
+//     struct Node* check=node;  
+//     if (pos == 1) {
+//         node = temp->next; 
+//         free(temp);        
+//         return node;
+//     }
+//     for (int i = 1; i < pos - 1 && temp!=check; i++) {
+//         temp = temp->next;
+//     }
+
+//     if (temp == NULL || temp->next == NULL) {
+//         printf("Position out of bounds.\n");
+//     } else {
+//         struct Node* delNode = temp->next; 
+//         temp->next = delNode->next;              
+//         free(delNode);                           
+//     }
+//     return node;
+// }
+// struct Node* insertion(int val, int pos, struct Node* head) {
+//     if (pos < 1) {
+//         printf("Invalid position. Position must be 1 or greater.\n");
+//         return head;
+//     }
+//     struct Node* check=head;  
+//     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+//     newNode->data = val;
+
+//     if (pos == 1) {
+//         newNode->next = head; 
+//         return newNode;     
+//     }
+//     struct Node* temp = head;
+//     for (int i = 1; i < pos - 1 && temp!=check; i++) {
+//         temp = temp->next;
+//     }
+//     if (temp == NULL) {
+//         printf("Position out of bounds.\n");
+//         free(newNode); 
+//     } else {
+//         newNode->next = temp->next;
+//         temp->next = newNode;
+//     }
+
+//     return head;
+// }
+// struct Node* creation(){
+//     printf("Enter the number of nodes: ");
+//     int n=0;
+//     scanf("%d",&n);
+//     struct Node* head;
+//     head=malloc(sizeof(struct Node));
+//     struct Node*prev=NULL;
+//     for(int i =0;i<n;i++){\
+//         struct Node* node;
+//         node=malloc(sizeof(struct Node));
+//         printf("Enter the data of node %d: ",i+1);
+//         scanf("%d",&node->data);
+//         if(i==0){
+//             head->next=node;
+//         }
+//         else{
+//             prev->next=node;
+//         }
+//         prev=node;
+//     }
+//     prev->next=head;
+//     return head;
+// }
+// void print_it(struct Node* node){
+//     struct Node* head=node;
+//         node=node->next;
+//     printf("%d ",node->data);
+//     while(node!=head){
+//         node=node->next;
+//         printf("%d ",node->data);
+//     }
+// }
+// int main(){
+//     struct Node* head=creation();
+//     head=insertion(69,2,head);
+//     head=deletion(2,head);
+//     print_it(head);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// // L_3 Q_1 doubly linkedlist insertion deltion and all 
+// #include <stdio.h>
+// #include <malloc.h>
+// struct LinkedNode{
+//     int data;
+//     struct LinkedNode * next;
+//     struct LinkedNode * prev;
+// };
+// struct LinkedNode* insertion(int val, int pos, struct LinkedNode* head) {
+//     if (pos < 1) {
+//         printf("Invalid position. Position must be 1 or greater.\n");
+//         return head;
+//     }
+
+//     struct LinkedNode* newNode = (struct LinkedNode*)malloc(sizeof(struct LinkedNode));
+//     newNode->data = val;
+
+//     if (pos == 1) {
+//         newNode->next = head; 
+//         newNode->prev=NULL;
+//         return newNode;       
+//     }
+//     struct LinkedNode* temp = head;
+//     for (int i = 1; i < pos - 1 && temp != NULL; i++) {
+//         temp = temp->next;
+//     }
+//     if (temp == NULL) {
+//         printf("Position out of bounds.\n");
+//         free(newNode); 
+//     } else {
+//         newNode->next = temp->next;
+//         temp->next->prev=newNode;
+//         newNode->prev = temp;
+//         temp->next = newNode;
+//     }
+
+//     return head;
+// }
+
+// void print_it(struct LinkedNode* node){
+//     while(node->next!=NULL){
+//         printf("%d->",node->data);
+//         node=node->next;
+//     }
+//     printf("%d\n",node->data);
+// }
+
+// struct LinkedNode* deletion(int pos, struct LinkedNode* node) {
+//     if (node == NULL || pos < 1) {
+//         printf("List is empty or position is invalid.\n");
+//         return NULL;
+//     }
+
+//     struct LinkedNode* temp = node; 
+
+//     if (pos == 1) {
+//         node = temp->next; 
+//         free(temp);        
+//         return node;
+//     }
+
+//     for (int i = 1; i < pos - 1 && temp != NULL; i++) {
+//         temp = temp->next;
+//     }
+
+//     if (temp == NULL || temp->next == NULL) {
+//         printf("Position out of bounds.\n");
+//     } else {
+//         struct LinkedNode* delNode = temp->next; 
+//         temp->next = delNode->next;  
+//         delNode->next->prev=temp;            
+//         free(delNode);                           
+//     }
+//     return node;
+// }
+
+// void reverse_print(struct LinkedNode* head){
+//     if(head==NULL){
+//         printf("The Linked list is empty");
+//         return;
+//     }
+//     struct LinkedNode*node=head;
+//     while(node->next!=NULL){
+//         node=node->next;
+//     }
+//     while(node!=NULL){
+//         printf("%d->",node->data);
+//         node=node->prev;
+//     }
+//     printf("\n");
+// }
+// void find_element(int val,struct LinkedNode* node){
+//     int i =0;
+//     int ret=-1;
+//     while(node!=NULL){
+//         if(val==node->data){
+//             ret=i;
+//         }
+//         node=node->next;
+//         i++;
+//     }
+//     if(ret!=-1){
+//         printf("%d is the positon of %d\n",ret,val);
+//     }
+//     else{
+//         printf("The value ain't present\n");
+//     }
+// }
+// struct LinkedNode* creation() {
+//     int num = 0;
+//     printf("Enter the number of elements you want to have in the linkedlist: ");
+//     scanf("%d", &num);
+
+//     if (num == 0) {
+//         return NULL;
+//     }
+//     struct LinkedNode* head = NULL;
+//     struct LinkedNode* tail = NULL; 
+//     for (int i = 0; i < num; i++) {
+//         int val = 0;
+//         printf("Enter the element %d: ", i + 1);
+//         scanf("%d", &val);
+//         struct LinkedNode* newNode = (struct LinkedNode*)malloc(sizeof(struct LinkedNode));
+//         newNode->data = val;
+//         newNode->next = NULL;
+//         newNode->prev = NULL;
+//         if (head == NULL) {
+//             head = newNode;
+//             head->next=tail;
+//             tail = newNode;
+//         } else {
+//             tail->next = newNode;
+//             newNode->prev=tail;
+//             tail = newNode;
+//         }
+//     }
+//     return head;
+// }
+// int main(){
+//     printf("##Welcome##\n");
+//     printf("\n");
+//     printf("\n");
+//     printf("##options##\n1-insertion\n2-Deletion\n3-Display\n4-Reverse\n5-Search\n6-Exit\n");
+
+//     struct LinkedNode* head=creation();
+
+//     while(0<1){
+//         printf("Enter the command number: ");
+//         int c;
+//         scanf("%d",&c);
+//         if(c==1){
+//             printf("Enter the number you want to insert: ");
+//             int val;
+//             scanf("%d",&val);
+//             printf("Enter the position you want to insert in: ");
+//             int pos;
+//             scanf("%d",&pos);
+//             head=insertion(val,pos,head);
+//         }
+//         if(c==2){
+//             printf("Enter the position you want to Delete: ");
+//             int pos;
+//             scanf("%d",&pos);
+//             head=deletion(pos,head);
+//         }
+//         if(c==3){
+//             print_it(head);
+//         }
+//         if(c==4){
+//             reverse_print(head);
+//         }
+//         if(c==5){
+//             printf("Enter the number you want to find: ");
+//             int num;
+//             scanf("%d",&num);
+//             find_element(num,head);
+//         }
+//         if(c==6){
+//             return 0;
+//         }
+//     }
 
 //     // print_it(head);
 //     // head = insertion(23,3,head);
@@ -856,3 +1161,77 @@
 
 //     return 0;
 // }
+
+
+
+
+
+// #include <stdio.h>
+// #include <malloc.h>
+// struct Node{
+//     int id;
+//     struct Node*ptr;
+// }*start=NULL;
+
+// int main(){
+//     int n,k,j=1;
+//     struct Node*t,*last,*p,*q;
+//     printf("Enter the number of persons: ");
+//     scanf("%d",&n);
+//     printf("Enter the number of turns: ");
+//     scanf("%d",&k);
+
+//     for(int i=1;i<=n;i++){
+//         t=malloc(sizeof(struct Node*));
+//         t->id=i;
+
+//         if(start==NULL){
+//             start=t;
+//         }
+//         else{
+//             last->ptr=t;
+//         }
+//         last=t;
+//     }
+//     t->ptr=start;
+
+//     q=p=start;
+//     while(j<n){
+//         for(int i=1;i<k;i++){
+//             q=p;
+//             p=p->ptr;
+//         }
+//         q->ptr=p->ptr;
+//         j++;
+//         q=q->ptr;
+//     }
+//     printf("%d",q->id);
+//     return 0;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
